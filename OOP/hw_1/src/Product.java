@@ -29,7 +29,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("наименование %s цена %f дата загрузки %s", name, cost, loadDate);
+        return String.format("наименование %s цена %.2fp дата загрузки %s", name, cost, loadDate);
     }
 
     public String getName() {
