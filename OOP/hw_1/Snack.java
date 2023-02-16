@@ -1,5 +1,5 @@
-package hw_7;
-import Seminar_7.Product;
+package hw_1;
+
 
 import java.util.Date;
 
@@ -11,14 +11,11 @@ public class Snack extends Product{
         this.calorie = calorie;
     }
 
-    public Snack(int calorie){
-        this.calorie = 0;
-    }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(super.toString());
-        sb.append(String.format(" Каллорийность %d ", calorie));
-             return sb.toString();
+        StringBuilder localCalorie = new StringBuilder(super.toString());
+        localCalorie.append(String.format(" Каллорийность %d", calorie));
+             return localCalorie.toString();
     }
 }

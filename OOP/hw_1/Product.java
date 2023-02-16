@@ -1,4 +1,5 @@
-package hw_7;
+package hw_1;
+
 import java.util.Date;
 
 public class Product {
@@ -28,7 +29,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return String.format("наименование %s цена %f дата загрузки %s", name, cost, loadDate.toString());
+        return String.format("наименование %s цена %f дата загрузки %s", name, cost, loadDate);
     }
 
     public String getName() {
