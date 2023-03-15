@@ -5,9 +5,9 @@ import java.util.List;
 public interface Repository {
     List<Note> getAllNotes();
 
-    String CreateNote(Note user);
+    String createNote(Note user);
 
     void saveNote(List<Note> users);
 
-    Note deleteNote(String id);
+    void deleteNote(String id);
 }

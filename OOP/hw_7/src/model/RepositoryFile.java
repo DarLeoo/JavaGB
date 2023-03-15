@@ -22,7 +22,7 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public String CreateNote(Note note) {
+    public String createNote(Note note) {
         List<Note> notes = getAllNotes();
         int max = 0;
         for (Note item : notes) {
@@ -49,16 +49,18 @@ public class RepositoryFile implements Repository {
     }
 
     @Override
-    public Note deleteNote(String id) {
+    public void deleteNote(String id) {
         List<String> lines = fileOperation.readAllLines();
         List<String> updatedLines = new ArrayList<>();
         for (String line : lines) {
-            String[] parts = line.split(",");
+            String[] parts = line.split(","); // перезапись файла без удаленного id
             if (!parts[0].equals(id)) {
                 updatedLines.add(line);
             }
+            fileOperation.saveAllLines(updatedLines);
         }
-        fileOperation.saveAllLines(updatedLines);
-        return null;
     }
-}
+
+
+
+    }

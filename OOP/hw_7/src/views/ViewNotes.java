@@ -44,8 +44,9 @@ public class ViewNotes {
     }
 
     private void deleteNote() throws Exception {
-        String id = prompt("Введите идентификатор записки: ");
-        noteController.deleteNote(id);
+        String deleteId = prompt("Введите идентификатор записки: ");
+        noteController.deleteNote(deleteId);
+        System.out.println("Вы успешно удалили записку");
     }
 
     private void updateNote() throws Exception {

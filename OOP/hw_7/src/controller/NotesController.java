@@ -13,7 +13,7 @@ public class NotesController {
     }
 
     public void saveNote(Note note) throws Exception {
-        repository.CreateNote(note);
+        repository.createNote(note);
     }
 
     public Note readNote(String noteId) throws Exception {
@@ -43,9 +43,8 @@ public class NotesController {
         repository.saveNote(notes);
     }
 
-    public Note deleteNote(String noteID) throws Exception {
+    public void deleteNote(String noteID) throws Exception {
         readNote(noteID);
-
-        return repository.deleteNote(noteID);
+        repository.deleteNote(noteID);
     }
 }

@@ -1,24 +1,34 @@
 package model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Note {
+    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private String id = "";
+    private LocalDateTime creationDate = LocalDateTime.now();
+    private String currentTime = creationDate.format(DateTimeFormatter.ofPattern(DATE_FORMAT));
     private String heading;
     private String body;
-    private Date dateOfCreate = new Date();
 
     public Note(String heading, String body) {
         this.heading = heading;
         this.body = body;
     }
-    public Note(String id, String heading, String body) {
+
+
+    public Note(String id, String dateString, String heading, String body) {
         this(heading, body);
+        this.currentTime = dateString;
         this.id = id;
-    }
+        }
 
     public String getId() {
         return id;
+    }
+
+    public String getDateString() {
+        return currentTime;
     }
 
     public String getHeading() {
@@ -27,10 +37,6 @@ public class Note {
 
     public String getBody() {
         return body;
-    }
-
-    public Date getDateOfCreate() {
-        return dateOfCreate;
     }
 
     public void setId(String id) {
@@ -45,10 +51,10 @@ public class Note {
         this.body = body;
     }
 
-
-    @Override
-    public String toString() {
-        return String.format("Номер заметки: %s\nЗаголовок: %s,\nТекст: %s,\nДата: %s",id,heading,body,dateOfCreate);
-    }
+@Override
+public String toString() {
+    return String.format("Номер заметки: %s\nДата: %s\nЗаголовок: %s\nТекст: %s",
+            id,currentTime, heading, body);
+}
 }
 

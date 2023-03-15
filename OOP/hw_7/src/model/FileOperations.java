@@ -42,7 +42,7 @@ public class FileOperations implements FileOperation{
     public void saveAllLines(List<String> lines) {
         try (FileWriter writer = new FileWriter(fileName, false)) {
             for (String line : lines) {
-                writer.write(line + '\n');
+                writer.write(line);
                 writer.append('\n');
             }
             writer.flush();
