@@ -13,6 +13,7 @@ public class ViewNotes {
     }
 
     public void run() {
+
         Commands com;
         while (true) {
             String command = prompt("Введите любую команду из предложенных " +

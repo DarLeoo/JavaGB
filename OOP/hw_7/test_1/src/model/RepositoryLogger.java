@@ -5,34 +5,34 @@ import java.util.List;
 public class RepositoryLogger implements Repository {
 
     private Repository logs;
-    private FileOperationAddNewSaveMethod writeEvent;
+    private Logger writeEvent;
 
-    public RepositoryLogger(Repository logs, FileOperationAddNewSaveMethod writeEvent){
+    public RepositoryLogger(Repository logs, Logger writeEvent){
         this.writeEvent = writeEvent;
         this.logs = logs;
     }
     @Override
     public List<Note> getAllNotes() {
-        writeEvent.saveLogFile("Выведены все записки");
+        writeEvent.saveToLog("Выведены все записки");
         return logs.getAllNotes();
     }
 
     @Override
     public String createNote(Note user) {
-        writeEvent.saveLogFile("Создана новая записка");
+        writeEvent.saveToLog("Создана новая записка");
         return logs.createNote(user);
     }
 
     @Override
     public void saveNote(List<Note> users) {
-        writeEvent.saveLogFile("Сохранена новая записка");
+        writeEvent.saveToLog("Сохранена новая записка");
         logs.saveNote(users);
     }
 
 
     @Override
     public void deleteNote(String id) {
-        writeEvent.saveLogFile("Удален пользователь: " + id);
+        writeEvent.saveToLog("Удален пользователь: " + id);
         logs.deleteNote(id);
     }
 }

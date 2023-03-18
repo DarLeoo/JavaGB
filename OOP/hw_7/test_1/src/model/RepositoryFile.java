@@ -10,7 +10,6 @@ public class RepositoryFile implements Repository {
     public RepositoryFile(FileOperation fileOperation) {
         this.fileOperation = fileOperation;
     }
-
     @Override
     public List<Note> getAllNotes() {
         List<String> lines = fileOperation.readAllLines();
