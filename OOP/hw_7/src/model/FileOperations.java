@@ -50,5 +50,4 @@ public class FileOperations implements FileOperation{
             System.out.println(ex.getMessage());
         }
     }
-
 }

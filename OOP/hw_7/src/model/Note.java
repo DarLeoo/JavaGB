@@ -16,7 +16,6 @@ public class Note {
         this.body = body;
     }
 
-
     public Note(String id, String dateString, String heading, String body) {
         this(heading, body);
         this.currentTime = dateString;

@@ -6,11 +6,9 @@ import java.util.List;
 public class RepositoryFile implements Repository {
     private NoteMapper mapper = new NoteMapper();
     private FileOperation fileOperation;
-
     public RepositoryFile(FileOperation fileOperation) {
         this.fileOperation = fileOperation;
     }
-
     @Override
     public List<Note> getAllNotes() {
         List<String> lines = fileOperation.readAllLines();
@@ -60,7 +58,4 @@ public class RepositoryFile implements Repository {
             fileOperation.saveAllLines(updatedLines);
         }
     }
-
-
-
     }

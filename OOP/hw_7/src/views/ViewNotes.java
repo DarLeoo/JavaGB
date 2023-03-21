@@ -1,19 +1,18 @@
 package views;
-import controller.NotesController;
+import controller.Notes;
 import model.Note;
-
 import java.util.List;
 import java.util.Scanner;
 public class ViewNotes {
-    private final NotesController noteController;
+    private final Notes noteController;
 
-    public ViewNotes(NotesController noteController) {
+    public ViewNotes(Notes noteController) {
         this.noteController = noteController;
     }
 
     public void run() {
-        Commands com;
 
+        Commands com;
         while (true) {
             String command = prompt("Введите любую команду из предложенных " +
                     "CREATE/READ/LIST/UPDATE/DELETE: ");
@@ -77,8 +76,6 @@ public class ViewNotes {
     private void createNote() throws Exception {
         noteController.saveNote(inputNote());
     }
-
-
 
     private String prompt(String message) {
         Scanner in = new Scanner(System.in);

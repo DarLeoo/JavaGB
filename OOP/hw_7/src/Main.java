@@ -1,16 +1,18 @@
+import Logger.Logger;
+import controller.Notes;
+import controller.NotesContLogger;
 import controller.NotesController;
-import model.FileOperation;
-import model.FileOperations;
-import model.Repository;
-import model.RepositoryFile;
+import model.*;
 import views.ViewNotes;
 
 public class Main {
     public static void main(String[] args) {
-        FileOperation fileOperation = new FileOperations("notes.txt");
+        Logger logger = new Logger("logger.txt");
+        FileOperation fileOperation = (new FileOperations("notes.txt"));
         Repository repository = new RepositoryFile(fileOperation);
         NotesController controller = new NotesController(repository);
-        ViewNotes view = new ViewNotes(controller);
+        Notes cont = new NotesContLogger(controller, logger);
+        ViewNotes view = new ViewNotes(cont);
         view.run();
     }
 }
